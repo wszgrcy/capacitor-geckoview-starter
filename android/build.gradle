@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.library' version '9.1.1' apply false
+    id 'com.android.application' version '9.1.1' apply false
+
+}
+
+
+
+ext {
+    // ============ GeckoView 依赖切换 ============
+    // geckoviewMode: local = 本地 local-maven-repo 调试, production = 中央仓库生产
+    if (!rootProject.hasProperty('geckoviewMode')) {
+        throw new GradleException('[GeckoView] 缺少必填配置 geckoviewMode (local / production)，请在 gradle.properties 中设置')
+    }
+    def geckoviewMode = rootProject.geckoviewMode
+
+    // 根据当前模式，仅检查当前需要的依赖坐标
+    if (geckoviewMode == 'production') {
+        // 生产坐标（中央仓库）
+        if (!rootProject.hasProperty('geckoviewProductionDependency')) {
+            throw new GradleException('[GeckoView] 缺少必填配置 geckoviewProductionDependency (生产坐标)，请在 gradle.properties 中设置')
+        }
+        geckoviewDependency = rootProject.geckoviewProductionDependency
+    } else if (geckoviewMode == 'local') {
+        // 本地开发坐标（local-maven-repo 调试）
+        if (!rootProject.hasProperty('geckoviewLocalDependency')) {
+            throw new GradleException('[GeckoView] 缺少必填配置 geckoviewLocalDependency (本地开发坐标)，请在 gradle.properties 中设置')
+        }
+        geckoviewDependency = rootProject.geckoviewLocalDependency
+    } else {
+        throw new GradleException("[GeckoView] geckoviewMode 配置无效: '$geckoviewMode'，仅支持 local / production")
+    }
+
+    // GeckoView 版本号（从坐标解析，供模块使用）
+    geckoviewVersion = geckoviewDependency.split(':')[2]
+}
+apply from: 'variables.gradle'
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

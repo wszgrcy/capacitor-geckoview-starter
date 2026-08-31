@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Capacitor GeckoView Demo</string>
+    <string name="title_activity_main">Capacitor GeckoView</string>
+</resources>
