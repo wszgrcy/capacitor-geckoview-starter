@@ -3,6 +3,8 @@
 
     <!-- GeckoView requires INTERNET permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Camera plugin -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MainApplication"
