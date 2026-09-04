@@ -1,0 +1,10 @@
+<section id="app-launcher-demo">
+  <h2>@capacitor-geckoview/app-launcher 检查/打开 URL</h2>
+  <label>
+    URL:
+    <input type="text" [value]="url()" (input)="url.set($any($event.target).value)" />
+  </label>
+  <button type="button" (click)="canOpen()">检查可打开</button>
+  <button type="button" (click)="open()">打开</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

@@ -11,7 +11,14 @@ const config: CapacitorGeckoviewConfig = {
   webDir: 'dist',
   android: { allowMixedContent: true, appZygoteProcessEnabled: true },
   server: { cleartext: true, androidScheme: 'https' },
-  plugins: {},
+  plugins: {
+    SplashScreen: {
+      androidScaleType: 'CENTER_INSIDE',
+      backgroundColor: '#FFFFFF',
+      launchShowDuration: 3000,
+      launchAutoHide: true,
+    },
+  },
 };
 
 export default config;

@@ -1,0 +1,12 @@
+<section id="screen-reader-demo">
+  <h2>@capacitor-geckoview/screen-reader 屏幕阅读器</h2>
+  <button type="button" (click)="isEnabled()">是否启用</button>
+  <button type="button" (click)="listen()">监听状态变化</button>
+  <button type="button" (click)="stop()">停止监听</button>
+  <label>
+    朗读文本:
+    <input type="text" [value]="text()" (input)="text.set($any($event.target).value)" />
+  </label>
+  <button type="button" (click)="speak()">朗读</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

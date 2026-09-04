@@ -1,0 +1,10 @@
+<section id="clipboard-demo">
+  <h2>@capacitor-geckoview/clipboard 读写剪贴板</h2>
+  <label>
+    文本:
+    <input type="text" [value]="text()" (input)="text.set($any($event.target).value)" />
+  </label>
+  <button type="button" (click)="write()">写入</button>
+  <button type="button" (click)="read()">读取</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

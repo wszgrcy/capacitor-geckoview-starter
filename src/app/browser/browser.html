@@ -1,0 +1,10 @@
+<section id="browser-demo">
+  <h2>@capacitor-geckoview/browser 打开系统浏览器</h2>
+  <label>
+    URL:
+    <input type="text" [value]="url()" (input)="url.set($any($event.target).value)" />
+  </label>
+  <button type="button" (click)="open()">打开</button>
+  <button type="button" (click)="close()">关闭</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

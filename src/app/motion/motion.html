@@ -1,0 +1,8 @@
+<section id="motion-demo">
+  <h2>@capacitor-geckoview/motion 传感器</h2>
+  <button type="button" (click)="startAccel()">监听加速度</button>
+  <button type="button" (click)="startOrientation()">监听方向</button>
+  <button type="button" (click)="stop()">停止</button>
+  <p>加速度: <code>{{ accel() }}</code></p>
+  <p>方向: <code>{{ orientation() }}</code></p>
+</section>

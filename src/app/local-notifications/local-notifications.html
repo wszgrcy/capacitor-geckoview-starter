@@ -1,0 +1,8 @@
+<section id="local-notifications-demo">
+  <h2>@capacitor-geckoview/local-notifications 本地通知</h2>
+  <p>注意：该插件本地目录原先缺少 <code>dist</code>，已先在插件仓库执行 <code>npm run build</code> 生成。</p>
+  <button type="button" (click)="requestPermission()">请求权限</button>
+  <button type="button" (click)="schedule()">5 秒后安排通知</button>
+  <button type="button" (click)="getPending()">查看待发通知</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

@@ -1,0 +1,11 @@
+<section id="toast-demo">
+  <h2>@capacitor-geckoview/toast 原生 Toast</h2>
+  <label>
+    文本:
+    <input type="text" [value]="text()" (input)="text.set($any($event.target).value)" />
+  </label>
+  <button type="button" (click)="show('short', 'bottom')">底部短</button>
+  <button type="button" (click)="show('long', 'top')">顶部长</button>
+  <button type="button" (click)="show('short', 'center')">居中短</button>
+  <p>结果: <code>{{ result() }}</code></p>
+</section>

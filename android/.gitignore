@@ -101,3 +101,5 @@ app/src/main/assets/capacitor.plugins.json
 app/src/main/res/xml/config.xml
 
 /app/release
+/capacitor.settings.gradle
+/app/capacitor.build.gradle
