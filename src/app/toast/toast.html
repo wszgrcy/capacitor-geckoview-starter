@@ -1,11 +1,22 @@
-<section id="toast-demo">
-  <h2>@capacitor-geckoview/toast 原生 Toast</h2>
-  <label>
-    文本:
-    <input type="text" [value]="text()" (input)="text.set($any($event.target).value)" />
-  </label>
-  <button type="button" (click)="show('short', 'bottom')">底部短</button>
-  <button type="button" (click)="show('long', 'top')">顶部长</button>
-  <button type="button" (click)="show('short', 'center')">居中短</button>
-  <p>结果: <code>{{ result() }}</code></p>
+<section class="demo-card">
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="demo-title">原生 Toast</h2>
+    <span class="demo-badge">toast</span>
+  </div>
+  <div class="flex flex-col gap-1.5">
+    <label class="demo-label" for="toast-text">文本</label>
+    <input
+      id="toast-text"
+      type="text"
+      class="demo-input"
+      [value]="text()"
+      (input)="text.set($any($event.target).value)"
+    />
+  </div>
+  <div class="demo-actions">
+    <button type="button" class="demo-btn-primary" (click)="show('short', 'bottom')">底部短</button>
+    <button type="button" class="demo-btn" (click)="show('long', 'top')">顶部长</button>
+    <button type="button" class="demo-btn" (click)="show('short', 'center')">居中短</button>
+  </div>
+  <p class="demo-result">结果: {{ result() }}</p>
 </section>

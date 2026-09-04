@@ -1,8 +1,13 @@
-<section id="screen-orientation-demo">
-  <h2>@capacitor-geckoview/screen-orientation 屏幕方向</h2>
-  <button type="button" (click)="current()">当前方向</button>
-  <button type="button" (click)="lockPortrait()">锁定竖屏</button>
-  <button type="button" (click)="lockLandscape()">锁定横屏</button>
-  <button type="button" (click)="unlock()">解锁</button>
-  <p>结果: <code>{{ result() }}</code></p>
+<section class="demo-card">
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="demo-title">屏幕方向</h2>
+    <span class="demo-badge">screen-orientation</span>
+  </div>
+  <div class="demo-actions">
+    <button type="button" class="demo-btn-primary" (click)="current()">当前方向</button>
+    <button type="button" class="demo-btn" (click)="lockPortrait()">锁定竖屏</button>
+    <button type="button" class="demo-btn" (click)="lockLandscape()">锁定横屏</button>
+    <button type="button" class="demo-btn" (click)="unlock()">解锁</button>
+  </div>
+  <p class="demo-result">结果: {{ result() }}</p>
 </section>

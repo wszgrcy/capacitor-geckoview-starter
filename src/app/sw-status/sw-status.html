@@ -1,1 +1,4 @@
-<p>SW 状态: <code>{{ status() }}</code></p>
+<p class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+  <span class="h-2 w-2 rounded-full bg-violet-500" aria-hidden="true"></span>
+  Service Worker：<span class="font-mono text-[13px]">{{ status() }}</span>
+</p>

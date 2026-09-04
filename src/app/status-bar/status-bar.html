@@ -1,8 +1,13 @@
-<section id="status-bar-demo">
-  <h2>@capacitor-geckoview/status-bar 状态栏</h2>
-  <button type="button" (click)="getInfo()">获取信息</button>
-  <button type="button" (click)="setDark()">文字 Dark</button>
-  <button type="button" (click)="show()">显示</button>
-  <button type="button" (click)="hide()">隐藏</button>
-  <p>结果: <code>{{ result() }}</code></p>
+<section class="demo-card">
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="demo-title">状态栏</h2>
+    <span class="demo-badge">status-bar</span>
+  </div>
+  <div class="demo-actions">
+    <button type="button" class="demo-btn-primary" (click)="getInfo()">获取信息</button>
+    <button type="button" class="demo-btn" (click)="setDark()">文字 Dark</button>
+    <button type="button" class="demo-btn" (click)="show()">显示</button>
+    <button type="button" class="demo-btn" (click)="hide()">隐藏</button>
+  </div>
+  <p class="demo-result">结果: {{ result() }}</p>
 </section>

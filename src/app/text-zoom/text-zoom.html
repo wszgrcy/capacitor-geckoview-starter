@@ -1,7 +1,12 @@
-<section id="text-zoom-demo">
-  <h2>@capacitor-geckoview/text-zoom 文本缩放</h2>
-  <button type="button" (click)="get()">获取当前</button>
-  <button type="button" (click)="getPreferred()">获取系统首选</button>
-  <button type="button" (click)="set()">设为 1.2</button>
-  <p>结果: <code>{{ result() }}</code></p>
+<section class="demo-card">
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="demo-title">文本缩放</h2>
+    <span class="demo-badge">text-zoom</span>
+  </div>
+  <div class="demo-actions">
+    <button type="button" class="demo-btn-primary" (click)="get()">获取当前</button>
+    <button type="button" class="demo-btn" (click)="getPreferred()">获取系统首选</button>
+    <button type="button" class="demo-btn" (click)="set()">设为 1.2</button>
+  </div>
+  <p class="demo-result">结果: {{ result() }}</p>
 </section>

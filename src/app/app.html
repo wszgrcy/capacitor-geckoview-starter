@@ -1,32 +1,55 @@
-<div id="app">
-  <h1>Capacitor GeckoView 功能验证</h1>
+<div id="app" class="mx-auto flex min-h-svh w-full max-w-6xl flex-col px-4 sm:px-6">
+  <!-- Hero -->
+  <header class="flex flex-col items-center gap-3 border-b border-zinc-200/70 py-10 text-center dark:border-zinc-800">
+    <p class="demo-badge">Capacitor · GeckoView</p>
+    <h1 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
+      Capacitor GeckoView 功能验证
+    </h1>
+    <p class="max-w-xl text-sm leading-relaxed text-zinc-500 sm:text-base dark:text-zinc-400">
+      基于 GeckoView 引擎的 Capacitor 插件演示集合，逐项验证各原生能力的调用与返回。
+    </p>
+    <div class="mt-1">
+      <app-sw-status></app-sw-status>
+    </div>
+  </header>
 
-  <app-sw-status></app-sw-status>
+  <!-- Demo cards grid -->
+  <main class="grid flex-1 gap-4 py-8 sm:grid-cols-2">
+    <section class="demo-card">
+      <div class="flex items-center justify-between gap-2">
+        <h2 class="demo-title">Service Worker 拦截验证</h2>
+        <span class="demo-badge">sw</span>
+      </div>
+      <p class="demo-desc">
+        下方图片来自 <code class="demo-code">https://picsum.photos</code>（随机图片网站）。
+        若 SW 生效，它会被拦截并始终显示同一张固定图片。
+      </p>
+      <img
+        id="random-img"
+        src="https://picsum.photos/400/300?random"
+        alt="随机图片"
+        class="w-full rounded-lg border border-zinc-200 object-cover dark:border-zinc-800"
+      />
+    </section>
 
-  <section id="sw-demo">
-    <h2>Service Worker 随机图片拦截验证</h2>
-    <p>下面的图片来自 <code>https://picsum.photos</code>（随机图片网站）。</p>
-    <p>若 SW 生效，它会被拦截并始终显示同一张固定图片。</p>
-    <img id="random-img" src="https://picsum.photos/400/300?random" alt="random image" />
-  </section>
-
-  <app-prefs-demo></app-prefs-demo>
-  <app-camera-demo></app-camera-demo>
-  <app-action-sheet-demo></app-action-sheet-demo>
-  <app-app-launcher-demo></app-app-launcher-demo>
-  <app-browser-demo></app-browser-demo>
-  <app-clipboard-demo></app-clipboard-demo>
-  <app-device-demo></app-device-demo>
-  <app-dialog-demo></app-dialog-demo>
-  <app-local-notifications-demo></app-local-notifications-demo>
-  <app-motion-demo></app-motion-demo>
-  <app-network-demo></app-network-demo>
-  <!-- <app-push-notifications-demo></app-push-notifications-demo> (跳过) -->
-  <app-screen-orientation-demo></app-screen-orientation-demo>
-  <app-screen-reader-demo></app-screen-reader-demo>
-  <app-share-demo></app-share-demo>
-  <app-splash-screen-demo></app-splash-screen-demo>
-  <app-status-bar-demo></app-status-bar-demo>
-  <app-text-zoom-demo></app-text-zoom-demo>
-  <app-toast-demo></app-toast-demo>
+    <app-prefs-demo></app-prefs-demo>
+    <app-camera-demo></app-camera-demo>
+    <app-action-sheet-demo></app-action-sheet-demo>
+    <app-app-launcher-demo></app-app-launcher-demo>
+    <app-browser-demo></app-browser-demo>
+    <app-clipboard-demo></app-clipboard-demo>
+    <app-device-demo></app-device-demo>
+    <app-dialog-demo></app-dialog-demo>
+    <app-local-notifications-demo></app-local-notifications-demo>
+    <app-motion-demo></app-motion-demo>
+    <app-network-demo></app-network-demo>
+    <!-- <app-push-notifications-demo></app-push-notifications-demo> (跳过) -->
+    <app-screen-orientation-demo></app-screen-orientation-demo>
+    <app-screen-reader-demo></app-screen-reader-demo>
+    <app-share-demo></app-share-demo>
+    <app-splash-screen-demo></app-splash-screen-demo>
+    <app-status-bar-demo></app-status-bar-demo>
+    <app-text-zoom-demo></app-text-zoom-demo>
+    <app-toast-demo></app-toast-demo>
+  </main>
 </div>
