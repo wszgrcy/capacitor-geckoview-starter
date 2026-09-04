@@ -1,0 +1,20 @@
+<section id="prefs-demo">
+  <h2>@capacitor/preferences set/get</h2>
+  <input
+    id="prefs-key"
+    type="text"
+    placeholder="key"
+    [value]="key()"
+    (input)="key.set($any($event.target).value)"
+  />
+  <input
+    id="prefs-value"
+    type="text"
+    placeholder="value"
+    [value]="value()"
+    (input)="value.set($any($event.target).value)"
+  />
+  <button type="button" (click)="setPrefs()">set</button>
+  <button type="button" (click)="getPrefs()">get</button>
+  <p>读取结果: <code>{{ result() }}</code></p>
+</section>

@@ -1,0 +1,8 @@
+<section id="camera-demo">
+  <h2>@capacitor/camera 调用相机</h2>
+  <button type="button" (click)="takePhoto()">拍照</button>
+  @if (imageSrc()) {
+    <img id="camera-image" [src]="imageSrc()" alt="camera result" />
+  }
+  <p>相机结果: <code>{{ result() }}</code></p>
+</section>
