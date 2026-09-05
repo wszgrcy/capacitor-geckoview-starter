@@ -11,6 +11,13 @@
     <div class="mt-1">
       <app-sw-status></app-sw-status>
     </div>
+    <p class="demo-desc mt-2">
+      当前引擎 User-Agent：
+      <code class="demo-code" data-testid="ua" aria-label="当前浏览器的 User-Agent">
+        {{ userAgent() }}
+      </code>
+      <span class="ml-1 text-xs">（含 <code class="demo-code">Gecko</code> 即表示运行在 GeckoView 上）</span>
+    </p>
   </header>
 
   <!-- Demo cards grid -->

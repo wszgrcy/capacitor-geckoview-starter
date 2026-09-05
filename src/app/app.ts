@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SwStatus } from './sw-status/sw-status';
 import { PrefsDemo } from './prefs/prefs';
 import { CameraDemo } from './camera/camera';
@@ -29,4 +29,7 @@ import { ToastDemo } from './toast/toast';
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {}
+export class App {
+  /** 当前浏览器的 User-Agent，用于直观展示是否运行在 GeckoView 引擎上 */
+  protected readonly userAgent = signal(navigator.userAgent);
+}
