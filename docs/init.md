@@ -1,11 +1,5 @@
 # 手动修改 Android 项目配置（初始化之后）
 
-> 对应 CLI 源码：`cli/src/android/common.ts` 中的 `editProjectSettingsAndroid`。
->
-> 当你运行 `npx cap add android` 时，CLI 会自动执行"复制模板 + 编辑设置"两步。本文只讲**初始化之后**的"编辑设置"部分——即把模板里的默认包名 `com.getcapacitor.myapp` 和应用名 `My App`，替换为你自己的 `appId` 与 `appName`。如果你希望跳过 CLI、手动维护这些配置，照着下面改即可。
-
-## 背景：CLI 自动改了什么
-
 读取 `capacitor.config.json` / `capacitor.config.ts` 中的：
 
 - `appId`（如 `com.example.app`）
@@ -13,11 +7,11 @@
 
 然后自动修改以下 3 类文件（相对 `android/` 平台目录）：
 
-| 文件 | 改什么 |
-|------|--------|
-| `app/src/main/java/<包名路径>/MainActivity.java` | 文件的 `package` 声明（Java 包名） |
-| `app/build.gradle` | `applicationId` 和 `namespace` |
-| `app/src/main/res/values/strings.xml` | `app_name`、`title_activity_main`、`package_name`、`custom_url_scheme` |
+| 文件                                             | 改什么                                                                 |
+| ------------------------------------------------ | ---------------------------------------------------------------------- |
+| `app/src/main/java/<包名路径>/MainActivity.java` | 文件的 `package` 声明（Java 包名）                                     |
+| `app/build.gradle`                               | `applicationId` 和 `namespace`                                         |
+| `app/src/main/res/values/strings.xml`            | `app_name`、`title_activity_main`、`package_name`、`custom_url_scheme` |
 
 下面逐一说明手动怎么改。
 
@@ -28,23 +22,28 @@
 CLI 会把模板的
 `android/app/src/main/java/com/getcapacitor/myapp/MainActivity.java`
 复制到以 appId 为路径的新目录，例如 `app/src/main/java/com/example/app/MainActivity.java`，并把 `package` 改成你的 appId。
+
 - 注意,不止是MainActivity,而是目录级别的变更`android/app/src/main/java/com/getcapacitor/myapp`->`app/src/main/java/com/example/app`
 
 ### 手动操作
 
 1. 新建目录：
+
    ```
    android/app/src/main/java/com/example/app/
    ```
+
    （即 `appId` 按 `.` 拆分成目录层级）
 
 2. 把模板的 `MainActivity.java` 复制过去：
+
    ```
    android/app/src/main/java/com/getcapacitor/myapp/MainActivity.java
    → android/app/src/main/java/com/example/app/MainActivity.java
    ```
 
 3. 修改文件第一行的 `package`：
+
    ```java
    // 改前
    package com.getcapacitor.myapp;
@@ -100,6 +99,7 @@ android {
 ```
 
 > 说明：
+>
 > - `applicationId`：发布到商店的应用 ID（包名）。
 > - `namespace`：Gradle 用于生成 `R` 类和解析类名，必须与 Java 包名一致。
 > - 模板里这两个值原本就不一样（`applicationId` 是 `com.getcapacitor.app`，`namespace` 是 `com.getcapacitor.myapp`），手动改的时候两个都改成你的 appId。
@@ -135,6 +135,7 @@ CLI 会把所有 `com.getcapacitor.myapp` 替换成 appId，并把 `My App` 替�
 ```
 
 > 说明：
+>
 > - `app_name` / `title_activity_main`：显示给用户的应用名。
 > - `package_name` / `custom_url_scheme`：深链/URL Scheme，必须和 appId 一致，否则 `capacitor://` 等自定义协议无法解析。
 > - 如果 appName 含特殊字符，需转义：`&`→`&amp;`、`<`→`&lt;`、`"`→`\"`、`'`→`\'`。
@@ -143,15 +144,15 @@ CLI 会把所有 `com.getcapacitor.myapp` 替换成 appId，并把 `My App` 替�
 
 ## 完整对照表
 
-| 文件 | 配置项 | 模板默认值 | 示例改为 |
-|------|--------|-----------|----------|
-| `MainActivity.java` | `package` | `com.getcapacitor.myapp` | `com.example.app` |
-| `app/build.gradle` | `applicationId` | `com.getcapacitor.app` | `com.example.app` |
-| `app/build.gradle` | `namespace` | `com.getcapacitor.myapp` | `com.example.app` |
-| `strings.xml` | `app_name` | `My App` | `我的应用` |
-| `strings.xml` | `title_activity_main` | `My App` | `我的应用` |
-| `strings.xml` | `package_name` | `com.getcapacitor.myapp` | `com.example.app` |
-| `strings.xml` | `custom_url_scheme` | `com.getcapacitor.myapp` | `com.example.app` |
+| 文件                | 配置项                | 模板默认值               | 示例改为          |
+| ------------------- | --------------------- | ------------------------ | ----------------- |
+| `MainActivity.java` | `package`             | `com.getcapacitor.myapp` | `com.example.app` |
+| `app/build.gradle`  | `applicationId`       | `com.getcapacitor.app`   | `com.example.app` |
+| `app/build.gradle`  | `namespace`           | `com.getcapacitor.myapp` | `com.example.app` |
+| `strings.xml`       | `app_name`            | `My App`                 | `我的应用`        |
+| `strings.xml`       | `title_activity_main` | `My App`                 | `我的应用`        |
+| `strings.xml`       | `package_name`        | `com.getcapacitor.myapp` | `com.example.app` |
+| `strings.xml`       | `custom_url_scheme`   | `com.getcapacitor.myapp` | `com.example.app` |
 
 ---
 
